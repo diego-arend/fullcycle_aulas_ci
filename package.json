@@ -1,0 +1,31 @@
+{
+  "name": "aulas_ci",
+  "version": "1.0.0",
+  "description": "- Comando para rodar o Commitsar localmente docker run --rm --name=\"commitsar\" -w /src -v \"$(pwd)\":/src aevea/commitsar",
+  "main": "index.js",
+  "dependencies": {
+    "commitizen": "^4.2.5"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diego-arend/fullcycle_aulas_ci.git"
+  },
+  "author": "Diego Arend",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diego-arend/fullcycle_aulas_ci/issues"
+  },
+  "homepage": "https://github.com/diego-arend/fullcycle_aulas_ci#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
