@@ -10,7 +10,7 @@ jobs:
     # Matriz de testes com versões do Go a serem testadas
     strategy:
       matrix:
-        go: ['1.18', '1.19']
+        go: ['1.19']
     steps:
     #  Cria as actions
       - uses: actions/checkout@v2
@@ -21,3 +21,13 @@ jobs:
     #  Cria os comandos
       - run: go test
       - run: go run main.go
+      # Comandos de build imagem Docker
+      - name: Set up QEMU
+      - uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+      - uses: docker/setup-buildx-action@v2
+      - name: Build and push
+      - uses: docker/build-push-action@v3
+          with:
+            push: false
+            tags: diegofarend/gh_actions_with_build_docker
