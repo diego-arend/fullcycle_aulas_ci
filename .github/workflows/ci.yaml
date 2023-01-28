@@ -13,8 +13,8 @@ jobs:
         go: ['1.19']
     steps:
     #  Cria as actions
-      - uses: actions/checkout@v2
-      - uses: actions/setup-go@v2
+        uses: actions/checkout@v2
+        uses: actions/setup-go@v2
       # Executa as configs da Matriz
         with:
           go-version: ${{matrix.go}}
@@ -23,11 +23,12 @@ jobs:
       - run: go run main.go
       # Comandos de build imagem Docker
       - name: Set up QEMU
-      - uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
-      - uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v2
       - name: Build and push
-      - uses: docker/build-push-action@v3
-          with:
+        id: docker_build
+        uses: docker/build-push-action@v3
+        with:
             push: false
             tags: diegofarend/gh_actions_with_build_docker
